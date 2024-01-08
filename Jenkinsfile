@@ -1,7 +1,6 @@
-@Library('your-shared-library-name') _
+@Library('tinku_cloud_lib') _
 
 myPipelineStep()
-
 pipeline{
     agent any
     stages {
