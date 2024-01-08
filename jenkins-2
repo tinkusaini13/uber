@@ -4,11 +4,12 @@ pipeline {
     agent any
     
     stages {
-        stage('Git Checkout') {
-            steps {
-                script {
-                    git branch: 'main', credentialsId: 'git_token', url: 'https://github.com/tinkusaini13/uber.git'
-                }
+        stage('Git Checkout'){
+            steps{
+            gitCheckout(
+                branch: "main",
+                url: "https://github.com/tinkusaini13/uber.git"
+            )
             }
         }
 
