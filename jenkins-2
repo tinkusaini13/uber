@@ -1,0 +1,17 @@
+@Library('tinku_cloud_lib') _
+
+commonPipeline()
+
+pipeline{
+    agent any
+    stages {
+        stage('Git Checkout'){
+            steps{
+                script{
+                    git branch: 'main', credentialsId: 'git_token', url: 'https://github.com/tinkusaini13/uber.git'
+                }
+            }
+        }
+    commonPipeline()
+    }
+}
