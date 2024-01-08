@@ -8,6 +8,7 @@ pipeline {
             steps{
             gitCheckout(
                 branch: "main",
+                credentialsId: 'git_token',
                 url: "https://github.com/tinkusaini13/uber.git"
             )
             }
