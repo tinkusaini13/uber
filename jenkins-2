@@ -22,10 +22,9 @@ pipeline {
             }
         }
 
-        stage('Maven Deploy') {
+        stage('Maven Deploy : maven') {
             steps {
                 script {
-                    // Pass the appropriate credentials ID for SSH access
                     deployWithSSH(credentialsId: 'dev_passwd')
                 }
             }
