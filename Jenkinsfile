@@ -1,6 +1,6 @@
 @Library('tinku_cloud_lib') _
 
-myPipelineStep(
+myPipelineStep()
 
 pipeline{
     agent any
