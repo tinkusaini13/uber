@@ -1,0 +1,38 @@
+pipeline {
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'qa', 'prod'], description: 'Select environment')
+        choice(name: 'BRANCH', choices: ['develop', 'uat', 'main'], description: 'Select branch')
+    }
+
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                script {
+                    git branch: "${params.BRANCH}", credentialsId: 'git_token', url: 'https://github.com/tinkusaini13/uber.git'
+                }
+            }
+        }
+
+        stage('Maven build') {
+            steps {
+                script {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            when {
+                expression { params.ENVIRONMENT == 'prod' && params.BRANCH == 'main' }
+            }
+            steps {
+                script {
+                    // Add deployment steps for production environment and main branch
+                    echo "Deploying to Production for main branch"
+                }
+            }
+        }
+    }
+}
