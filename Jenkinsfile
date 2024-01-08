@@ -10,7 +10,7 @@ pipeline{
                 
                 script{
                   
-                    git branch: 'main', url: 'https://github.com/tinkusaini13/uber.git'
+                    git branch: 'main', credentialsId: 'git_token', url: 'https://github.com/tinkusaini13/uber.git'
                    
                 }
             }
