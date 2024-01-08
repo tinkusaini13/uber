@@ -21,5 +21,13 @@ pipeline {
                }
             }
         }
+
+        stage('Maven Deploy'){
+           steps{
+               script{      
+                   deployWithSSH()
+               }
+            }
+        }
     }
 }
