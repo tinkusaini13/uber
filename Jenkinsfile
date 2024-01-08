@@ -10,7 +10,7 @@ pipeline{
                 
                 script{
                   
-                    git branch: 'main', url: 'https://github.com/tinkusaini13/sonar-demo-app.git'
+                    git branch: 'main', url: 'https://github.com/tinkusaini13/uber.git'
                    
                 }
             }
