@@ -12,9 +12,11 @@ pipeline {
             }
         }
 
-        stage('Common Pipeline Stages') {
-            steps {
-                commonPipeline()
+        stage('Maven Build : maven'){
+           steps{
+               script{      
+                   mvnBuild()
+               }
             }
         }
     }
