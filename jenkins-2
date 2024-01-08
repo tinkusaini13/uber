@@ -4,29 +4,30 @@ pipeline {
     agent any
     
     stages {
-        stage('Git Checkout'){
-            steps{
-            gitCheckout(
-                branch: "main",
-                credentialsId: 'git_token',
-                url: "https://github.com/tinkusaini13/uber.git"
-            )
+        stage('Git Checkout') {
+            steps {
+                gitCheckout(
+                    branch: "main",
+                    credentialsId: 'git_token',
+                    url: "https://github.com/tinkusaini13/uber.git"
+                )
             }
         }
 
-        stage('Maven Build : maven'){
-           steps{
-               script{      
-                   mvnBuild()
-               }
+        stage('Maven Build : maven') {
+            steps {
+                script {
+                    mvnBuild()
+                }
             }
         }
 
-        stage('Maven Deploy'){
-           steps{
-               script{      
-                   deployWithSSH()
-               }
+        stage('Maven Deploy') {
+            steps {
+                script {
+                    // Pass the appropriate credentials ID for SSH access
+                    deployWithSSH(credentialsId: 'dev_passwd')
+                }
             }
         }
     }
