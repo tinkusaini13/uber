@@ -1,6 +1,7 @@
-@Library('tinku_cloud_lib') _
+@Library('tinku_cloud_lib') -
 
 myPipelineStep()
+
 pipeline{
     agent any
     stages {
